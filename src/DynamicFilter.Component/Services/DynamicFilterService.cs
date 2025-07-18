@@ -7,11 +7,11 @@ using System.Reflection;
 
 namespace DynamicFilter.Component.Services;
 
-public class GenericFilterService<TContext> : IGenericFilterService<TContext> where TContext : DbContext
+public class DynamicFilterService<TContext> : IDynamicFilterService<TContext> where TContext : DbContext
 {
     private readonly TContext _context;
 
-    public GenericFilterService(TContext context)
+    public DynamicFilterService(TContext context)
     {
         _context = context;
     }
@@ -25,7 +25,7 @@ public class GenericFilterService<TContext> : IGenericFilterService<TContext> wh
             if (entityType is null)
                 throw new EntityNotFoundException(entityName);
 
-            MethodInfo method = typeof(GenericFilterService<TContext>)
+            MethodInfo method = typeof(DynamicFilterService<TContext>)
                 .GetMethod(nameof(BuildQuery), BindingFlags.NonPublic | BindingFlags.Instance)!
                 .MakeGenericMethod(entityType);
 
