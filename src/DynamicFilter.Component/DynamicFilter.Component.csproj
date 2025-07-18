@@ -4,7 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>devkennies26</Authors>
+    <Description>Dynamically filtering entities in an  EF Core DbContext based on string-based filter expressions. It's ideal for building flexible APIs where filter logic needs to be dynamic and runtime-driven.</Description>
+    <RepositoryUrl>https://github.com/devKennies26/dynamic-filter-component</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.18" />
